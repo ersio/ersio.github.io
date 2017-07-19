@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>Kill: Willam Crane (Onyx)</title>
+
+<!--CSS-->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/bootstrap-light.css">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<!--/CSS-->
+
+<!--JS-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../js/jquery.plugin.js"></script>
+<script src="../js/jquery.countdown.js"></script>
+    <script>
+
+
+        $(function() {
+
+            $.getJSON('https://zkillboard.com/api/character/95099558/losses/ship/11995/', function(data) {
+                $('#defaultCountdown').countdown({ since: new Date(data[0].killTime + 'z') });
+                $('#totalLost').text(data.length);
+            });
+
+        });
+</script>
+<!--/JS-->
+
+</head>
+
+<body>
+
+<!--DARK OVERLAY-->
+<div class="overlay"></div>
+<!--/DARK OVERLAY-->
+
+<!--WRAP-->
+<div id="wrap">
+	<!--CONTAINER-->
+	<div class="container">
+		
+		<h1>
+			<span>Time Since </span><br/><span class="yellow">Willam Crane</span><span> Last lost an Oynx</span>
+		</h1>
+		<div id="defaultCountdown"></div>
+	    <p class="copyright"><a href="https://zkillboard.com/character/95099558/losses/ship/11995/"><span id="totalLost"></span> Onyx's lost to date</a></p>
+	        <br/>
+	        <br/>
+	        <p>Yes it is possible to lose 2 Onyx's in the time it takes the zkill api to update.</p>
+	</div>
+	<!--/CONTAINER-->
+</div>
+<!--/WRAP-->
+
+</body>
+</html>
