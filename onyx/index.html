@@ -20,7 +20,7 @@
         $(function() {
 
             $.getJSON('https://zkillboard.com/api/character/95099558/losses/ship/11995/', function(data) {
-                $('#defaultCountdown').countdown({ since: new Date(data[0].killTime + 'z') });
+                $('#defaultCountdown').countdown({ since: new Date(data[0].killmail_time + 'z') });
                 $('#totalLost').text(data.length);
             });
 
