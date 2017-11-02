@@ -20,20 +20,10 @@
         $(function() {
 
             $.getJSON('https://zkillboard.com/api/character/95099558/losses/ship/11995/', function(data) {
-                $('#defaultCountdown').countdown({ since: convertUTCDateToLocalDate(new Date(data[0].killmail_time)) });
+                $('#defaultCountdown').countdown({ since: new Date(data[0].killmail_time) });
                 $('#totalLost').text(data.length);
             });
 		
-	    function convertUTCDateToLocalDate(date) {
-		    var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
-
-		    var offset = date.getTimezoneOffset() / 60;
-		    var hours = date.getHours();
-
-		    newDate.setHours(hours - offset);
-
-		    return newDate;   
-		}
 
         });
 </script>
